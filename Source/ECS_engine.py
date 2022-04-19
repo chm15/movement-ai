@@ -63,8 +63,9 @@ class SystemManager:
 class Entity:
     _components = {}  # { __class__ : int }  where int is the id of a component.
     _ecs_engine
+    _entity_ID
 
-    def __init__(self, ID, ecs_engine, components = {}):
+    def __init__(self, ID: int, ecs_engine, components = {}):
         self._entity_ID = ID
         self._ecs_engine = ecs_engine
 
@@ -74,7 +75,7 @@ class Entity:
         return
 
     def add_component(component: Component):
-        component.set_ID(self.
+        component.set_ID(self._entity_ID)
         self._components[component.__class__] = component
         # TODO: Add component to list of components in comp. man.
         return
@@ -84,9 +85,13 @@ class Entity:
 class Component:
     _entity_ID = -1
 
-    def __init__(self, entity_ID, component_ID):
-        self.ID = component_ID
-        self.entity_ID = entity_ID
+    def __init__(self, entity_ID: int):
+        self._entity_ID = entity_ID
         return
+
+
+class System:
+    def __init__(self):
+        pass
 
 

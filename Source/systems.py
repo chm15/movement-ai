@@ -5,16 +5,18 @@ cmclaughlan15@gmail.com
 '''
 
 
-class PlayerControllerSystem:
+# Make a decorator for registering systems
+
+class PlayerControllerSystem(System):
     def __init__(self):
         pass
 
 
-class PhysicsSystem:
+class PhysicsSystem(System):
     def __init__(self):
         pass
 
 
-class GraphicsSystem:
+class GraphicsSystem(System):
     def __init__(self):
         pass
